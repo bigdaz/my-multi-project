@@ -11,6 +11,14 @@ plugins {
     `java-library`
 }
 
+val javaHome = File(System.getProperty("java.home"))
+val javaVersion = System.getProperty("java.version")
+logger.lifecycle("Using Java: " + javaHome + " (" + javaVersion + ")")
+
+if (!javaVersion.startsWith("11")) {
+    throw RuntimeException("Bad java version : " + javaVersion)
+}
+
 repositories {
     // Use jcenter for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
