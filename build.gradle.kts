@@ -15,10 +15,9 @@ val javaHomeEnv = System.getenv("JAVA_HOME")
 val javaHome = File(System.getProperty("java.home"))
 val javaVersion = System.getProperty("java.version")
 logger.lifecycle("Using Java: " + javaHome + " (" + javaVersion + ")")
-logger.lifecycle("JAVA_HOME = " + javaHomeEnv)
 
 if (!javaVersion.startsWith("11")) {
-//    throw RuntimeException("Bad java version : " + javaVersion + " (JAVA_HOME = " + javaHomeEnv + ")")
+    throw RuntimeException("Bad java version : " + javaVersion + " (JAVA_HOME = " + javaHomeEnv + ")")
 }
 
 repositories {
